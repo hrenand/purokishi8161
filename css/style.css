@@ -1,0 +1,134 @@
+body {
+  font-family: sans-serif;
+  padding: 20px;
+  background: #f0f0f0;
+  user-select: none;
+}
+
+/* ドラッグ＆ドロップエリア */
+.drop-zone {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9999;
+  background: rgba(250, 250, 250, 0.95);
+  border: 3px dashed #666;
+  color: #666;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  pointer-events: none; /* 通常は無効化 */
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.drop-zone.dragover {
+  pointer-events: auto; /* dragover中のみ有効 */
+  opacity: 1;
+  background-color: rgba(221, 238, 255, 0.95);
+  border-color: #3399ff;
+  color: #3399ff;
+}
+
+/* 挿入画像リスト */
+.image-list {
+  max-width: 640px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.image-item {
+  position: relative;
+  width: 80px;
+  height: 106px; /* カード比率に近い */
+  border: 1px solid #ccc;
+  background: white;
+  box-shadow: 0 0 4px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 12px;
+  user-select: none;
+}
+
+.image-item img {
+  width: 60px;
+  height: 81px;
+  object-fit: cover;
+  border: 1px solid #000;
+  margin-top: 4px;
+}
+
+.image-controls {
+  margin-top: 4px;
+  display: flex;
+  gap: 6px;
+}
+
+.image-controls button {
+  width: 24px;
+  height: 24px;
+  font-weight: bold;
+  cursor: pointer;
+  border: 1px solid #999;
+  border-radius: 4px;
+  background: #eee;
+  user-select: none;
+}
+.image-controls button:hover {
+  background: #ddd;
+}
+
+/* 複数ページコンテナ */
+#pagesContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+/* A4ページ（1枚） */
+.a4-page {
+  position: relative;
+  width: 210mm;
+  height: 297mm;
+  border: 1px solid #000;
+  background: #fff;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* カード共通 */
+.card {
+  position: absolute;
+  object-fit: cover;
+  border: 0.5mm solid #000;
+  box-sizing: border-box;
+  user-select: none;
+}
+
+/* 縦向き */
+.vertical {
+  width: 61mm;
+  height: 81mm;
+}
+
+/* 横向き（90度回転） */
+.horizontal {
+  width: 61mm;
+  height: 81mm;
+  transform-origin: top left;
+  transform: rotate(90deg) translateY(-81mm);
+}
+.bulk-controls {
+  margin: 10px 0;
+}
+.bulk-controls button {
+  margin-right: 6px;
+  padding: 6px 12px;
+  font-size: 14px;
+  cursor: pointer;
+}

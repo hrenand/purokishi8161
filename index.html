@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <title>カード印刷レイアウト</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+</head>
+<body>
+
+  <h1>プロキシ作成サイト</h1>
+  <h3>どこかにドラッグ＆ドロップしてください　　　印刷設定...A4余白なし</h3>
+    <!-- 追加: ドラッグ＆ドロップエリア -->
+  <div id="dropZone" class="drop-zone">
+    ここに画像をドラッグ＆ドロップしてください
+  </div>
+
+  <!-- 追加: 挿入画像リスト -->
+  <div id="imageList" class="image-list"></div>
+  <!-- 一括操作ボタン -->
+  <div class="bulk-controls">
+    <button id="bulkMinus">− 全て減らす</button>
+    <button id="bulkPlus">＋ 全て増やす</button>
+  </div>
+
+
+    <!-- 複数ページを包むコンテナ -->
+  <div id="pagesContainer"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>
