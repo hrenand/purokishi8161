@@ -190,3 +190,23 @@ h1 {
   transform-origin: top left;
   transform: rotate(90deg) translateY(-81mm);
 }
+.image-item {
+  position: relative;
+}
+.delete-btn {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 26px;
+  height: 26px;
+  border: none;
+  border-radius: 6px;
+  background: #fecaca;
+  color: #b91c1c;
+  font-weight: bold;
+  cursor: pointer;
+}
+.delete-btn:hover {
+  background: #fca5a5;
+}
+
