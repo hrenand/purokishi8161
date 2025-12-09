@@ -83,6 +83,17 @@ function renderImageList() {
     };
     controls.appendChild(plusBtn);
 
+    // 🔽 追加：削除ボタン 
+    const deleteBtn = document.createElement('button');
+deleteBtn.textContent = '✖';
+deleteBtn.className = 'delete-btn';
+deleteBtn.title = 'この画像を削除';
+deleteBtn.onclick = () => {
+  cards.splice(idx, 1);
+  renderAll();
+};
+div.appendChild(deleteBtn);
+
     div.appendChild(controls);
     imageList.appendChild(div);
   });
@@ -147,7 +158,7 @@ function addImage(container, src, x, y, orientation) {
   container.appendChild(img);
 }
 
-// 印刷処理（html2canvas→PNG→印刷）
+// 印刷処理
 printBtn.addEventListener('click', () => {
   const pages = Array.from(document.querySelectorAll('.a4-page'));
   const canvasPromises = pages.map(page =>
@@ -168,9 +179,6 @@ printBtn.addEventListener('click', () => {
           <style>
             body { margin: 0; padding: 0; }
             img { display: block; width: 100%; page-break-after: always; }
-            @media print {
-              img { page-break-after: always; }
-            }
           </style>
         </head>
         <body>
